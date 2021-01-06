@@ -2,10 +2,10 @@
   "API_URL": "http://106.14.248.48:18080",
   "OSS_CONF": {
     "region": "oss-cn-beijing",
-    "accessKeyId": "myaccesskey",
-    "accessKeySecret": "myaccesssecrect",
-    "bucket": "bucket"
+    "accessKeyId": "LTAI4GBQuB5E3c7ZDrBpqB88",
+    "accessKeySecret": "e0uBHg2ivYK0UIb3QveuQNtdCunHzF",
+    "bucket": "bookhubimage"
   },
-  "OSS_URL": "https://myawesomebucket.com/",
+  "OSS_URL": "https://bookhubimage.oss-cn-beijing.aliyuncs.com/",
   "DEFAULT_AVATAR": "https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png"
 }

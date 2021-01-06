@@ -202,18 +202,18 @@ export default {
       // console.log(res);
       // this.loading=false;
     },
-    async viewMesInfo(row) {
+    viewMesInfo(row) {
       this.messageData = row;
-      //console.log(this.messageData);
       this.checkDialogVisible = true;
-      const res = await axios.post(
-        this.$helper.endpointUrl("/Leave/ProViewLeaves"),
-        {},
-        {
-          withCredentials: true,
-        }
-      );
-      this.getWorkMessageList();
+      //console.log(this.messageData);
+      // const res = await axios.post(
+      //   this.$helper.endpointUrl("/Leave/ProViewLeaves"),
+      //   {},
+      //   {
+      //     withCredentials: true,
+      //   }
+      // );
+      // this.getWorkMessageList();
       // console.log(res);
     },
 

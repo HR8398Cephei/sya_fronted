@@ -564,7 +564,7 @@ export default {
 
       //   this.likestatus[this.workList[i].work_id] = a
       // }
-      this.total = res.data.totalpage
+      this.total = res.data.totalpage * this.queryInfo.pagesize
 
       this.pagenum = res.data.pagenum
     },

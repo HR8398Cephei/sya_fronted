@@ -33,7 +33,7 @@
         </el-col>
       </el-row>
       <!--表格区域-->
-      <el-row style="margin-top:1cm">
+      <el-row style="margin-top:1 cm">
         <el-table :data="Worklist" border>
           <el-table-column type="index" label="#"> </el-table-column>
           <el-table-column prop="work_name" label="工作名称"> </el-table-column>

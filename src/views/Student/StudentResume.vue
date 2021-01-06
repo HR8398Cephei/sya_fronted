@@ -424,7 +424,7 @@ export default {
       );
 
       this.Resume = res;
-      if (res == -1) {
+      if (res.errorCode == -1) {
         this.resumeExsit = false;
       }
       this.loading = false;

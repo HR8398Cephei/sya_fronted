@@ -78,7 +78,7 @@
           :current-page="pageInfo.pagenum"
           :page-sizes="[1, 2, 5, 10]"
           :page-size="pageInfo.pagesize"
-          layout="total, sizes, prev, pager, next, jumper"
+          layout="sizes, prev, pager, next, jumper"
           :total="this.total"
         ></el-pagination>
       </div>

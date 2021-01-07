@@ -398,7 +398,7 @@ export default {
   async created() {
     //调用获取发布的工作的API函数
     //  this.getWorkInfo()
-    await this.getWorkList()
+    await this.findWork()
   },
   methods: {
     //监听每页条数选项改变的事件
@@ -500,34 +500,34 @@ export default {
       this.drawer = true
     },
     //获取工作列表的函数
-    async getWorkList() {
-      const res = await axios.post(
-        this.$helper.endpointUrl('/Work/ViewAllWork'),
-        {
-          pagenum: this.queryInfo.pagenum,
-          pagesize: this.queryInfo.pagesize,
-        },
-        {
-          withCredentials: true,
-        }
-      )
-      if (res.status !== 200) {
-        this.$message.error('Unexpected response')
-        return
-      }
-      this.workList = res.data.worklist
-      this.total = res.data.totalpage * this.queryInfo.pagesize
-      // this.pagesize = res.data.totalpage / res.data.pagenum
-      this.pagenum = res.data.pagenum
-      this.loading = false
+    // async getWorkList() {
+    //   const res = await axios.post(
+    //     this.$helper.endpointUrl('/Work/ViewAllWork'),
+    //     {
+    //       pagenum: this.queryInfo.pagenum,
+    //       pagesize: this.queryInfo.pagesize,
+    //     },
+    //     {
+    //       withCredentials: true,
+    //     }
+    //   )
+    //   if (res.status !== 200) {
+    //     this.$message.error('Unexpected response')
+    //     return
+    //   }
+    //   this.workList = res.data.worklist
+    //   this.total = res.data.totalpage * this.queryInfo.pagesize
+    //   // this.pagesize = res.data.totalpage / res.data.pagenum
+    //   this.pagenum = res.data.pagenum
+    //   this.loading = false
 
-      const promiseArr = []
-      this.workList.forEach(({ work_id: workId }) => promiseArr.push(this.getLike(workId)))
-      const resArr = await Promise.all(promiseArr)
-      const likeStatusObj = resArr.reduce((prevObj, { liked, workId }) => ({ ...prevObj, [workId]: liked }), {})
-      console.log(likeStatusObj)
-      this.likestatus = likeStatusObj
-    },
+    //   const promiseArr = []
+    //   this.workList.forEach(({ work_id: workId }) => promiseArr.push(this.getLike(workId)))
+    //   const resArr = await Promise.all(promiseArr)
+    //   const likeStatusObj = resArr.reduce((prevObj, { liked, workId }) => ({ ...prevObj, [workId]: liked }), {})
+    //   console.log(likeStatusObj)
+    //   this.likestatus = likeStatusObj
+    // },
     async getLike(workId) {
       const res = await axios.post(
         this.$helper.endpointUrl("/Work/GetLike"),
@@ -559,14 +559,17 @@ export default {
         return
       }
       this.workList = res.data.worklist
-      // for (var i = 0; i < this.workList.length; i++) {
-      //   let a = await this.showLike(this.workList[i].work_id)
-
-      //   this.likestatus[this.workList[i].work_id] = a
-      // }
       this.total = res.data.totalpage * this.queryInfo.pagesize
-
+      // this.pagesize = res.data.totalpage / res.data.pagenum
       this.pagenum = res.data.pagenum
+      this.loading = false
+
+      const promiseArr = []
+      this.workList.forEach(({ work_id: workId }) => promiseArr.push(this.getLike(workId)))
+      const resArr = await Promise.all(promiseArr)
+      const likeStatusObj = resArr.reduce((prevObj, { liked, workId }) => ({ ...prevObj, [workId]: liked }), {})
+      console.log(likeStatusObj)
+      this.likestatus = likeStatusObj
     },
 
     async changeLike(workid) {

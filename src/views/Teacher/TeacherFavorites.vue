@@ -69,7 +69,7 @@
             :current-page="queryInfo.pagenum"
             :page-sizes="[5, 10, 15, 20]"
             :page-size="queryInfo.pagesize"
-            layout="total, sizes, prev, pager, next, jumper"
+            layout="sizes, prev, pager, next, jumper"
             :total="total"
             style="margin-top:10px"
           ></el-pagination>
@@ -128,7 +128,7 @@
         :current-page="queryInfo.pagenum1"
         :page-sizes="[5, 10, 15, 20]"
         :page-size="queryInfo.pagesize1"
-        layout="total, sizes, prev, pager, next, jumper"
+        layout="sizes, prev, pager, next, jumper"
         :total="total"
         background
       ></el-pagination>-->

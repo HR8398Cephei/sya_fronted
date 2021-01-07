@@ -63,9 +63,6 @@
     <el-link style="font-size: 12px" type="primary">用户协议</el-link>
     <div class="verticalBar"></div>
     <div class="erweima_box">
-      <b>满意的话，请给我们项目一点支持</b>
-      <br />
-      <img src="../assets/imagebox/login_mid2.png" alt class="mid" />
       <img src="../assets/imagebox/login_left2.png" alt class="left" />
       <img src="../assets/imagebox/login_right2.png" alt class="right" />
     </div>
@@ -249,7 +246,7 @@ export default {
   .left {
     height: 140px;
     width: 140px;
-    transform: translate(-150%, 80%);
+    transform: translate(-100%, 80%);
     img {
       width: 100%;
       height: 100%;

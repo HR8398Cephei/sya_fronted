@@ -438,16 +438,17 @@ export default {
         }
       );
       console.log(result);
-
-      if (result.data == -1) {
+ 
+      if (result.data === -1) {
         this.$message.error("删除失败");
+      } else {
+        this.$message({
+          message: "已成功删除",
+          type: "success",
+          duration: 1000,
+        });
+        this.getWorkList();
       }
-      this.$message({
-        message: "已成功删除",
-        type: "info",
-        duration: 1000,
-      });
-      this.getWorkList();
     },
 
     // 编辑工作

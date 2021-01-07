@@ -109,7 +109,7 @@ export default {
         { withCredentials: true }
       );
       //console.log(res);
-      if (res.status == 204) {
+      if (res.status == 200) {
         //将登录信息保存到vuex
         this.$store.commit("logOut");
         //将vuex里的信息保存到sessionStorage里

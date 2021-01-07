@@ -525,7 +525,9 @@ export default {
         .multipartUpload(fileName, file.file)
         .then((result) => {
           // console.log(result);
-          this.uploadImg = this.$helper.ossFileUrl(result.name);
+          const imgUrl = this.$helper.ossFileUrl(result.name);
+          this.uploadImg = imgUrl;
+          this.editdata.cover = imgUrl
         });
     },
     // 图片限制
